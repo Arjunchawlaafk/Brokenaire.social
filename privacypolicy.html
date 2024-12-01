@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brokenaire | Privacy Policy</title>
+    <link rel="icon" href="assets/logo1.jpg" type="image/jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=League+Spartan:wght@100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="/Home">
+                    <img src="assets/logo.png" alt="Brokenaire Logo">
+                </a>
+            </div>          
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/Home">Home</a></li>
+                    <li><a href="/About-us">About</a></li>
+                    <li><a href="/Contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+        <div class="hero">
+            <div class="hero-content">
+                <a href="/Privacy-Policy""><h1>Privacy Policy</h1>
+                </a>
+                <p></p>
+            </div>
+        </div>
+        <br><br><br>
+        <section class="policy-section">
+            <div class="container">
+                <p>At Brokenaire.social, your privacy is important to us. This privacy policy outlines the types of personal information that we collect, how it is used, and how we protect it. By using our website, you agree to the collection and use of information in accordance with this policy.</p>
+            
+                <h3>Information We Collect</h3>
+                <p>We collect two types of information from users: <strong>personal data</strong> and <strong>usage data</strong>.</p>
+            
+                <h4>1. Personal Data</h4>
+                <p>We do not collect any personally identifiable information such as name, email address, or contact details unless voluntarily provided by the user (e.g., via email inquiries). Please refrain from submitting confidential or sensitive personal data on our platform.</p>
+            
+                <h4>2. Usage Data</h4>
+                <p>When you visit our website, we automatically collect certain information about how you interact with our site. This includes information such as your IP address, browser type, the pages you visit, and the time and date of your visit. This data is collected to improve the user experience on the site.</p>
+            
+                <h3>Use of Data</h3>
+                <p><strong>News Data:</strong> We display specific news articles sourced from the <strong>NewsData API</strong>. These articles are provided as is, with no alterations. No personal data is shared with the NewsData API.</p>
+            
+                <h3>Cookies</h3>
+                <p>Our website may collect minimal cookies for basic functionality, though we do not use them for tracking purposes or to collect personal information. While we do rely on external APIs to provide news content, these services do not collect personal data from our users. We do not store cookies on your device beyond what is necessary for the site to function smoothly.</p>
+            
+                <h3>Data Security</h3>
+                <p>We are committed to protecting your personal data. While no method of transmission over the internet is 100% secure, we implement reasonable measures to protect your data from unauthorized access, alteration, or disclosure.</p>
+            
+                <h3>External Links</h3>
+                <p>Our website may contain links to other websites that are not operated by us. We have no control over the content and practices of these external sites and are not responsible for their privacy policies.</p>
+            
+                <h3>Changes to This Privacy Policy</h3>
+                <p>We may update this privacy policy periodically. We will notify users of any significant changes by posting the updated policy on this page with the effective date.</p>
+            
+                <h3>Contact Us</h3>
+                <p>If you have any questions or concerns regarding this privacy policy, please do not hesitate to contact us.</p>
+                <p>Email us at: <a href="mailto:arjunchawla42@gmail.com">arjunchawla42@gmail.com</a></p>
+            </div>
+                       
+        </section>
+        
+
+    <br><br>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Brokenaire. All Rights Reserved.
+            <a href="/Privacy-Policy">Privacy Policy</a> 
+            <a href="/Terms-and-Conditions">Terms and Conditions</a>
+        </p>
+    </footer>
+</body>
+<script>
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.main-header .container');
+        
+        // Log scroll position for debugging
+        console.log("Scroll Position:", window.scrollY);
+
+        if (window.scrollY > 50) {
+            // If scroll position is more than 50px, change background color
+            header.style.backgroundColor = '#262626'; // Darker background
+        } else {
+            // If scroll position is 50px or less, reset background color
+            header.style.backgroundColor = 'transparent'; // Default color
+        }
+    });
+</script>
+</html>

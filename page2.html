@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brokenaire | Home</title>
+    <link rel="icon" href="assets/logo1.jpg" type="image/jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=League+Spartan:wght@100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="/Home">
+                    <img src="assets/logo.png" alt="Brokenaire Logo">
+                </a>
+            </div>          
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/Home">Home</a></li>
+                    <li><a href="/About-us">About</a></li>
+                    <li><a href="/Contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="hero" id="hero">
+        <div class="hero-content">
+            <a href="#" id="hero-link">
+                <h1 id="hero-title">Loading...</h1>
+            </a>
+            <p id="hero-date">Loading...</p>
+        </div>
+    </div>
+    
+
+
+ <!-- Reports Section -->
+<main class="reports-section" id="reports-section">
+    <!-- Articles will be dynamically injected here -->
+</main>
+
+
+ <!-- Pagination Section -->
+ <div class="pagination">
+    <a href="/Home">1</a>
+    <a href="/page-2" class="active">2</a>
+    <a href="/page-3">3</a>
+    <a href="/page-4">4</a>
+    <a href="/page-5">5</a>
+</div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Brokenaire. All Rights Reserved.
+            <a href="/Privacy-Policy">Privacy Policy</a> 
+            <a href="/Terms-and-Conditions">Terms and Conditions</a>
+        </p>
+    </footer>
+</body>
+<script>
+    // Function to fetch and display news articles from page 2
+    async function loadNews() {
+        try {
+            // Fetch data from the newsdata.json file
+            const response = await fetch('newsdata.json'); // Adjust the path if needed
+            const newsData = await response.json();
+
+            // Extract articles from page 2
+            const page2Articles = newsData.page2 || []; // Access the "page2" key from the JSON
+
+            // Update the Hero Section (first news item for the hero)
+            if (page2Articles.length > 0) {
+                const heroNews = page2Articles[0]; // Taking the first item from page 2
+
+                // Update the hero link
+                const heroLink = document.getElementById('hero-link');
+                heroLink.href = heroNews.url;
+                heroLink.target = "_blank"; // Set target to "_blank" for the hero link
+
+                // Update the hero title
+                const heroTitle = document.getElementById('hero-title');
+                heroTitle.textContent = heroNews.title;
+
+                // Update the hero date
+                const heroDate = document.getElementById('hero-date');
+                heroDate.textContent = `Published on ${new Date(heroNews.date).toLocaleDateString()}`;
+            }
+
+            // Get the container where articles will be displayed (excluding the first one for hero)
+            const reportsSection = document.getElementById('reports-section');
+
+            // Loop through the page 2 articles and create articles for display, excluding the first one for hero
+            page2Articles.slice(1).forEach(news => {  // Skip the first article for the reports section
+                const article = document.createElement('article');
+
+                // Create the link for the article
+                const link = document.createElement('a');
+                link.href = news.url;
+                link.classList.add('article-link');
+                link.target = "_blank"; // Set target to "_blank" for the article links
+
+                // Create the title of the article
+                const title = document.createElement('h2');
+                title.textContent = news.title;
+
+                // Append the title to the link
+                link.appendChild(title);
+
+                // Create the publication date of the article
+                const date = document.createElement('p');
+                date.textContent = `Published on ${new Date(news.date).toLocaleDateString()}`;
+
+                // Append the link and date to the article
+                article.appendChild(link);
+                article.appendChild(date);
+
+                // Append the article to the reports section
+                reportsSection.appendChild(article);
+            });
+        } catch (error) {
+            console.error('Error loading news:', error);
+        }
+    }
+
+    // Load the news when the page is ready
+    window.onload = loadNews;
+</script>
+
+
+
+<script>
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.main-header .container');
+        
+        // Log scroll position for debugging
+        console.log("Scroll Position:", window.scrollY);
+
+        if (window.scrollY > 50) {
+            // If scroll position is more than 50px, change background color
+            header.style.backgroundColor = '#262626'; // Darker background
+        } else {
+            // If scroll position is 50px or less, reset background color
+            header.style.backgroundColor = 'transparent'; // Default color
+        }
+    });
+</script>
+
+
+
+</html>

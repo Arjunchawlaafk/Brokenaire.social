@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brokenaire | Terms and Conditions</title>
+    <link rel="icon" href="assets/logo1.jpg" type="image/jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=League+Spartan:wght@100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="/Home">
+                    <img src="assets/logo.png" alt="Brokenaire Logo">
+                </a>
+            </div>          
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/Home">Home</a></li>
+                    <li><a href="/About-us">About</a></li>
+                    <li><a href="/Contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+        <div class="hero">
+            <div class="hero-content">
+                <a href="/Terms-and-Conditions"><h1>Terms and Conditions</h1>
+                </a>
+                <p></p>
+            </div>
+        </div>
+        <br><br><br>
+        <section class="policy-section">
+            <div class="container">
+                <p>Welcome to Brokenaire.social. By accessing or using our website, you agree to comply with and be bound by the following terms and conditions. If you do not agree with these terms, please do not use our website.</p>
+        
+                <h3>1. Acceptance of Terms</h3>
+                <p>By accessing or using Brokenaire.social, you accept and agree to be bound by these terms and conditions and our privacy policy. We reserve the right to change, modify, or update these terms at any time without prior notice.</p>
+        
+                <h3>2. Use of the Website</h3>
+                <p>Our website provides access to news articles via the NewsData API. You agree to use our website solely for personal, non-commercial purposes. You must not use the site for any unlawful activities, including but not limited to fraud, harassment, or infringement of intellectual property rights.</p>
+        
+                <h3>3. Content</h3>
+                <p>All content provided on Brokenaire.social, including news articles, images, and other materials, is sourced from third-party APIs, such as the NewsData API. While we strive to provide accurate and up-to-date information, we do not guarantee the accuracy, completeness, or reliability of the content.</p>
+        
+                <h3>4. Intellectual Property</h3>
+                <p>All content on the website, including text, images, logos, and other materials, is the property of Brokenaire.social or its respective content providers and is protected by copyright and intellectual property laws. You may not use any content from the website for commercial purposes without obtaining permission from the respective copyright holders.</p>
+        
+                <h3>5. Privacy Policy</h3>
+                <p>Your use of Brokenaire.social is also governed by our <a href="/Privacy-Policy">Privacy Policy</a>. By using the website, you agree to the collection and use of information as described in the Privacy Policy.</p>
+        
+                <h3>6. Limitation of Liability</h3>
+                <p>Brokenaire.social is not responsible for any direct, indirect, incidental, or consequential damages resulting from the use or inability to use the website. We do not guarantee the continuous availability or uptime of the website. You use the website at your own risk.</p>
+        
+                <h3>7. Third-Party Links</h3>
+                <p>Our website may contain links to third-party websites that are not controlled by us. We are not responsible for the content, privacy policies, or practices of these external sites. You access third-party websites at your own risk.</p>
+        
+                <h3>8. Termination</h3>
+                <p>We may suspend or terminate your access to Brokenaire.social at our sole discretion, without notice, for violations of these terms and conditions or any other legal or regulatory reason.</p>
+        
+                <h3>9. Contact Us</h3>
+                <p>If you have any questions or concerns about these terms and conditions, please contact us at:</p>
+                <p>Email us at: <a href="mailto:arjunchawla42@gmail.com">arjunchawla42@gmail.com</a></p>
+            </div>
+        </section>
+        
+        
+
+    <br><br>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Brokenaire. All Rights Reserved.
+            <a href="/Privacy-Policy">Privacy Policy</a> 
+            <a href="/Terms-and-Conditions">Terms and Conditions</a>
+        </p>
+    </footer>
+</body>
+<script>
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.main-header .container');
+        
+        // Log scroll position for debugging
+        console.log("Scroll Position:", window.scrollY);
+
+        if (window.scrollY > 50) {
+            // If scroll position is more than 50px, change background color
+            header.style.backgroundColor = '#262626'; // Darker background
+        } else {
+            // If scroll position is 50px or less, reset background color
+            header.style.backgroundColor = 'transparent'; // Default color
+        }
+    });
+</script>
+</html>
