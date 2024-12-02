@@ -8,7 +8,7 @@ const API_KEY = 'pub_609739ae556aa822b09d4537f6eb657ac633a';
 const BASE_URL = 'https://newsdata.io/api/1/news';
 
 // The query parameters for fetching negative business or finance news
-const query = 'scam OR scandal OR fraud OR "stock all time low" OR "market crash" OR "business loss" OR "financial crisis"';
+const query = 'scam OR scandal OR fraud OR "stock all time low" OR "market crash" OR "business loss" OR "financial crisis" OR "bankruptcy" OR "Ponzi scheme" OR "mismanagement" OR "insider trading" OR "accounting fraud" OR "investment bubble" OR "liquidity crisis" OR "corporate scandal" OR "market manipulation" OR "Ponzi fraud" OR "ethical breach" OR "fraudulent scheme" OR "illegal trading" OR "unregulated market" OR "financial misreporting"';
 
 // Initialize Express app
 const app = express();
