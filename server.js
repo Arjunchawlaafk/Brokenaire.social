@@ -43,10 +43,16 @@ const fetchNews = async (page = null) => {
 // Function to add a delay
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-// Function to fetch multiple batches of news articles
 const fetchMultipleNewsBatches = async (totalArticles = 100) => {
     const allArticles = [];
     let currentPage = null;
+
+    // Read existing articles from newsdata.json
+    let oldArticles = [];
+    if (fs.existsSync('newsdata.json')) {
+        const oldData = JSON.parse(fs.readFileSync('newsdata.json', 'utf-8'));
+        oldArticles = Object.values(oldData).flat(); // Flatten pages into a single array
+    }
 
     while (allArticles.length < totalArticles) {
         const newsData = await fetchNews(currentPage);
@@ -82,33 +88,47 @@ const fetchMultipleNewsBatches = async (totalArticles = 100) => {
         await delay(2000);
     }
 
-    console.log(`Total articles fetched: ${allArticles.length}`);
+    console.log(`Total new articles fetched: ${allArticles.length}`);
 
     // Process and filter unique articles
     const uniqueTitles = new Set();
-    const processedArticles = allArticles.map((item, index) => ({
+    const processedNewArticles = allArticles.map((item, index) => ({
+        serial: index + 1,
         title: item.title,
         url: item.link,
         date: item.pubDate,
         sentiment: item.sentiment || 'N/A',
         source: item.source_id,
+        source_name: item.source_name || 'Unknown',
+        content: item.content || 'Content not available',
+        description: item.description || 'Description not available',
+        image_url: item.image_url || 'Image not available',
         duplicate: item.duplicate || false,
-        Serial: index + 1,
     })).filter(article => {
         if (uniqueTitles.has(article.title)) return false;
         uniqueTitles.add(article.title);
         return true;
     });
 
-    console.log(`Total unique articles: ${processedArticles.length}`);
+    // Supplement with older articles if needed
+    const combinedArticles = [...processedNewArticles];
+    for (const article of oldArticles) {
+        if (combinedArticles.length >= totalArticles) break;
+        if (!uniqueTitles.has(article.title)) {
+            combinedArticles.push(article);
+            uniqueTitles.add(article.title);
+        }
+    }
+
+    console.log(`Total combined articles: ${combinedArticles.length}`);
 
     // Split articles into pages of 20
     const pageSize = 20;
     const pagesData = {};
-    const totalPages = Math.ceil(processedArticles.length / pageSize);
+    const totalPages = Math.ceil(combinedArticles.length / pageSize);
 
     for (let i = 0; i < totalPages; i++) {
-        pagesData[`page${i + 1}`] = processedArticles.slice(i * pageSize, (i + 1) * pageSize);
+        pagesData[`page${i + 1}`] = combinedArticles.slice(i * pageSize, (i + 1) * pageSize);
     }
 
     console.log(`Pages created: ${Object.keys(pagesData).length}`);
@@ -117,6 +137,8 @@ const fetchMultipleNewsBatches = async (totalArticles = 100) => {
     fs.writeFileSync('newsdata.json', JSON.stringify(pagesData, null, 2), 'utf-8');
     console.log('Data saved to newsdata.json');
 };
+
+
 
 // Immediately fetch news when the server starts
 fetchMultipleNewsBatches(100);
