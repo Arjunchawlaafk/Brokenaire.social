@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Your API key for NewsData.io
-const API_KEY = 'pub_609739ae556aa822b09d4537f6eb657ac633a';
+const API_KEY = 'pub_56585245ec35367f6ff2cbbb58060ffe8f1e6';
 const BASE_URL = 'https://newsdata.io/api/1/news';
 
 // The query parameters for fetching negative business or finance news
