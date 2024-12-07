@@ -146,7 +146,7 @@ fetchMultipleNewsBatches(100);
 // Fetch articles every 3 hours (10800000 ms)
 setInterval(() => {
     fetchMultipleNewsBatches(100);
-}, 10800000); // 3 hours in milliseconds
+}, 18000000); // 5 hours in milliseconds
 
 // Serve other static HTML pages
 app.get('/Home', (req, res) => {
